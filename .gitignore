@@ -1,0 +1,10 @@
+# Compiled binaries
+a.out
+*.o
+
+# Test mains must stay out of the repo root
+/main.c
+
+# Vim temporary files
+*.swp
+*~
