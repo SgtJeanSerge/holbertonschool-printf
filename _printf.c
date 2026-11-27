@@ -22,8 +22,19 @@ int _printf(const char *format, ...)
 		{
 			f = get_print_func(format[i + 1]);
 			if (f == NULL)
-				return (NULL);
-			
+			{
+				va_end(param);
+				return (-1);
+			}
+			f(param);
+			i++;
+		}
+		else
+		{
+			_putchar(format[i]);
+			i++;
 		}
 	}
+	va_end(param);
+	return (0);
 }
