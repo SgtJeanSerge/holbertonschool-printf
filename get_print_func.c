@@ -11,8 +11,8 @@ int (*get_print_func(char c))(va_list)
 {
 	specifier_t arr[4] = {
 		{'c', print_char},
-		{'s', print_char},
-		{'%', print_char},
+		{'s', print_str},
+		{'%', print_percent},
 		{'\0', NULL},
 	};
 	unsigned int i = 0;
