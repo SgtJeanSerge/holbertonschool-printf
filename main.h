@@ -6,5 +6,8 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int (*get_print_func(char c))(va_list);
+int print_char(va_list args);
+int print_percent(va_list arg);
+int print_str(va_list arg);
 
 #endif
