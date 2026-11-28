@@ -16,19 +16,29 @@ int _printf(const char *format, ...)
 	va_list param;
 	int count = 0;
 
+	if (format == NULL)
+		return (-1);
 	va_start(param, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			f = get_print_func(format[i + 1]);
-			if (f == NULL)
+			if (format[i + 1] == '\0')
 			{
 				va_end(param);
 				return (-1);
 			}
-			count += f(param);
-			i++;
+
+			f = get_print_func(format[i + 1]);
+			if (f == NULL)
+			{
+				_putchar('%');
+				_putchar(format[i + 1]);
+				count += 2;
+			}
+			else
+				count += f(param);
+			i += 2;
 		}
 		else
 		{
