@@ -1,21 +1,15 @@
 #include "main.h"
 
 /**
- * print_chars - prints charaters or string
- * @args: receive arguments from _printf 
+ * print_char - prints a charater
+ * @arg: arguments from _printf
  *
- * Return:0 success
+ * Return: 0 (success)
  */
-
-int print_chars(va_list args)
+int print_char(va_list arg)
 {
-char *s = va_args(args, char *)
-int i = 0;
-if (s == NULL)  
-while (s[i]!='\0')
-{ 
-    _putchar(s[i]);
-i++;
-}
-return (i);
+	char s = va_arg(arg, int);
+
+	_putchar(s);
+	return (1);
 }
